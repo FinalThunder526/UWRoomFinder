@@ -1,3 +1,5 @@
 buildingName,roomNumber,description
-Alder,100,"Simple room, dummy data."
-Alder,200,"Way cooler, still dummy data though."
+Alder,302B,Big
+Alder,302C,Small
+Alder,302D,Small
+Alder,302F,Small
