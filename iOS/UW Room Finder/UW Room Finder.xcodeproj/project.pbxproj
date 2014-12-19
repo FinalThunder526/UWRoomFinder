@@ -29,7 +29,6 @@
 		777F74461A439A5B000208AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74451A439A5B000208AC /* SystemConfiguration.framework */; };
 		777F74481A439A65000208AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74471A439A65000208AC /* libz.dylib */; };
 		777F744A1A439A71000208AC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74491A439A71000208AC /* libsqlite3.dylib */; };
-		777F744D1A439EBE000208AC /* UWRoomFinderBridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		777F74471A439A65000208AC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		777F74491A439A71000208AC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UW Room Finder-Bridging-Header.h"; sourceTree = "<group>"; };
-		777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRoomFinderBridgingHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,14 +138,13 @@
 		777F74051A439707000208AC /* UW Room Finder */ = {
 			isa = PBXGroup;
 			children = (
+				777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */,
 				777F74281A439749000208AC /* BuildingsTableView.swift */,
-				777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */,
 				777F74081A439707000208AC /* AppDelegate.swift */,
 				777F740C1A439707000208AC /* Main.storyboard */,
 				777F740F1A439707000208AC /* Images.xcassets */,
 				777F74111A439707000208AC /* LaunchScreen.xib */,
 				777F74061A439707000208AC /* Supporting Files */,
-				777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */,
 			);
 			path = "UW Room Finder";
 			sourceTree = "<group>";
@@ -289,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777F744D1A439EBE000208AC /* UWRoomFinderBridgingHeader.m in Sources */,
 				777F74091A439707000208AC /* AppDelegate.swift in Sources */,
 				777F74291A439749000208AC /* BuildingsTableView.swift in Sources */,
 			);
@@ -496,6 +492,7 @@
 				777F74241A439707000208AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		777F74251A439707000208AC /* Build configuration list for PBXNativeTarget "UW Room FinderTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +501,7 @@
 				777F74271A439707000208AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
