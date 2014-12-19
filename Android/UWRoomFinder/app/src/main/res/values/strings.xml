@@ -4,5 +4,6 @@
     <string name="app_name">UWRoomFinder</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="building_title">Buildings</string>
 
 </resources>
