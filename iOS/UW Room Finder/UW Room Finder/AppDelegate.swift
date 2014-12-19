@@ -23,13 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         */
         Parse.setApplicationId("L3Toj2w8dfPshDHJX1sqDWVcT4enSvOusLnxJo5f", clientKey: "pTVkoYOJJrcShql5bqLrmhgaenN5fXvES8G2nEWQ")
-
+        
+        /*
         var testObject:PFObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
         testObject.setObject("user1", forKey: "user")
         testObject.save()
         
-        /*
+        
 
         PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
         testObject[@"foo"] = @"bar";

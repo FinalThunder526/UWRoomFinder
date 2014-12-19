@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		776175721A43C69600F72BEE /* FloorsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776175711A43C69600F72BEE /* FloorsTableView.swift */; };
+		776175741A43D29100F72BEE /* StudyRoomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776175731A43D29100F72BEE /* StudyRoomTableView.swift */; };
+		776175761A43DA7900F72BEE /* BuildingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776175751A43DA7900F72BEE /* BuildingsTableView.swift */; };
 		777F74091A439707000208AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F74081A439707000208AC /* AppDelegate.swift */; };
 		777F740E1A439707000208AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777F740C1A439707000208AC /* Main.storyboard */; };
 		777F74101A439707000208AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777F740F1A439707000208AC /* Images.xcassets */; };
 		777F74131A439707000208AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777F74111A439707000208AC /* LaunchScreen.xib */; };
 		777F741F1A439707000208AC /* UW_Room_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F741E1A439707000208AC /* UW_Room_FinderTests.swift */; };
-		777F74291A439749000208AC /* BuildingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F74281A439749000208AC /* BuildingsTableView.swift */; };
 		777F74301A4399D9000208AC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742B1A4399D9000208AC /* Bolts.framework */; };
 		777F74311A4399D9000208AC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742C1A4399D9000208AC /* Parse.framework */; };
 		777F74321A4399D9000208AC /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742D1A4399D9000208AC /* ParseCrashReporting.framework */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		776175711A43C69600F72BEE /* FloorsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorsTableView.swift; sourceTree = "<group>"; };
+		776175731A43D29100F72BEE /* StudyRoomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyRoomTableView.swift; sourceTree = "<group>"; };
+		776175751A43DA7900F72BEE /* BuildingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildingsTableView.swift; path = ../BuildingsTableView.swift; sourceTree = "<group>"; };
 		777F74031A439707000208AC /* UW Room Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UW Room Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777F74071A439707000208AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777F74081A439707000208AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +56,6 @@
 		777F74181A439707000208AC /* UW Room FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UW Room FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777F741D1A439707000208AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777F741E1A439707000208AC /* UW_Room_FinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UW_Room_FinderTests.swift; sourceTree = "<group>"; };
-		777F74281A439749000208AC /* BuildingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildingsTableView.swift; path = ../BuildingsTableView.swift; sourceTree = "<group>"; };
 		777F742B1A4399D9000208AC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		777F742C1A4399D9000208AC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		777F742D1A4399D9000208AC /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -139,7 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */,
-				777F74281A439749000208AC /* BuildingsTableView.swift */,
+				776175751A43DA7900F72BEE /* BuildingsTableView.swift */,
+				776175731A43D29100F72BEE /* StudyRoomTableView.swift */,
+				776175711A43C69600F72BEE /* FloorsTableView.swift */,
 				777F74081A439707000208AC /* AppDelegate.swift */,
 				777F740C1A439707000208AC /* Main.storyboard */,
 				777F740F1A439707000208AC /* Images.xcassets */,
@@ -286,8 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776175741A43D29100F72BEE /* StudyRoomTableView.swift in Sources */,
+				776175721A43C69600F72BEE /* FloorsTableView.swift in Sources */,
 				777F74091A439707000208AC /* AppDelegate.swift in Sources */,
-				777F74291A439749000208AC /* BuildingsTableView.swift in Sources */,
+				776175761A43DA7900F72BEE /* BuildingsTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
