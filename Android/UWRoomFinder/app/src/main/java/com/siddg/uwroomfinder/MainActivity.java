@@ -1,11 +1,14 @@
 package com.siddg.uwroomfinder;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -35,8 +38,18 @@ public class MainActivity extends ActionBarActivity {
 
         // App entry
         buildingList = (ListView) findViewById(R.id.buildingList);
+        buildingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String buildingName = buildings.get(position);
+                Intent i = new Intent(MainActivity.this, FloorActivity.class);
+                i.putExtra("buildingName", buildingName);
+                startActivity(i);
+
+            }
+        });
         buildings = new ArrayList<String>();
-        buildingAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, buildings);
+        buildingAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buildings);
         buildingList.setAdapter(buildingAdapter);
         getBuildings();
 
@@ -49,9 +62,9 @@ public class MainActivity extends ActionBarActivity {
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
-                if(e == null) {
+                if (e == null) {
                     Set<String> Buildings = new TreeSet<String>();
-                    for(ParseObject object: parseObjects) {
+                    for (ParseObject object : parseObjects) {
                         String build = object.getString("buildingName");
                         Buildings.add(build);
                     }
@@ -66,7 +79,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void addBuildingstoList(Set<String> Buildings) {
         buildings.clear();
-        for(String s : Buildings) {
+        for (String s : Buildings) {
             buildings.add(s);
         }
         buildingAdapter.notifyDataSetChanged();
@@ -88,7 +101,7 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         // Refresh action
-        if(id == R.id.action_refresh) {
+        if (id == R.id.action_refresh) {
             getBuildings();
         }
 
