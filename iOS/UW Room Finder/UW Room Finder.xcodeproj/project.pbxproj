@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		777F74091A439707000208AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F74081A439707000208AC /* AppDelegate.swift */; };
+		777F740E1A439707000208AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777F740C1A439707000208AC /* Main.storyboard */; };
+		777F74101A439707000208AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777F740F1A439707000208AC /* Images.xcassets */; };
+		777F74131A439707000208AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777F74111A439707000208AC /* LaunchScreen.xib */; };
+		777F741F1A439707000208AC /* UW_Room_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F741E1A439707000208AC /* UW_Room_FinderTests.swift */; };
+		777F74291A439749000208AC /* BuildingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F74281A439749000208AC /* BuildingsTableView.swift */; };
+		777F74301A4399D9000208AC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742B1A4399D9000208AC /* Bolts.framework */; };
+		777F74311A4399D9000208AC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742C1A4399D9000208AC /* Parse.framework */; };
+		777F74321A4399D9000208AC /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742D1A4399D9000208AC /* ParseCrashReporting.framework */; };
+		777F74331A4399D9000208AC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742E1A4399D9000208AC /* ParseFacebookUtils.framework */; };
+		777F74341A4399D9000208AC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F742F1A4399D9000208AC /* ParseUI.framework */; };
+		777F74361A439A17000208AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74351A439A17000208AC /* AudioToolbox.framework */; };
+		777F74381A439A21000208AC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74371A439A21000208AC /* CFNetwork.framework */; };
+		777F743A1A439A2B000208AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74391A439A2B000208AC /* CoreGraphics.framework */; };
+		777F743C1A439A34000208AC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F743B1A439A34000208AC /* CoreLocation.framework */; };
+		777F743E1A439A3D000208AC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F743D1A439A3D000208AC /* MobileCoreServices.framework */; };
+		777F74401A439A45000208AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F743F1A439A45000208AC /* QuartzCore.framework */; };
+		777F74421A439A4C000208AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74411A439A4C000208AC /* Security.framework */; };
+		777F74441A439A54000208AC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74431A439A54000208AC /* StoreKit.framework */; };
+		777F74461A439A5B000208AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74451A439A5B000208AC /* SystemConfiguration.framework */; };
+		777F74481A439A65000208AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74471A439A65000208AC /* libz.dylib */; };
+		777F744A1A439A71000208AC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74491A439A71000208AC /* libsqlite3.dylib */; };
+		777F744D1A439EBE000208AC /* UWRoomFinderBridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		777F74191A439707000208AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 777F73FB1A439707000208AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 777F74021A439707000208AC;
+			remoteInfo = "UW Room Finder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		777F74031A439707000208AC /* UW Room Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UW Room Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		777F74071A439707000208AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		777F74081A439707000208AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		777F740D1A439707000208AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		777F740F1A439707000208AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		777F74121A439707000208AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		777F74181A439707000208AC /* UW Room FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UW Room FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		777F741D1A439707000208AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		777F741E1A439707000208AC /* UW_Room_FinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UW_Room_FinderTests.swift; sourceTree = "<group>"; };
+		777F74281A439749000208AC /* BuildingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildingsTableView.swift; path = ../BuildingsTableView.swift; sourceTree = "<group>"; };
+		777F742B1A4399D9000208AC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		777F742C1A4399D9000208AC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		777F742D1A4399D9000208AC /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		777F742E1A4399D9000208AC /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		777F742F1A4399D9000208AC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		777F74351A439A17000208AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		777F74371A439A21000208AC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		777F74391A439A2B000208AC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		777F743B1A439A34000208AC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		777F743D1A439A3D000208AC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		777F743F1A439A45000208AC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		777F74411A439A4C000208AC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		777F74431A439A54000208AC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		777F74451A439A5B000208AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		777F74471A439A65000208AC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		777F74491A439A71000208AC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UW Room Finder-Bridging-Header.h"; sourceTree = "<group>"; };
+		777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRoomFinderBridgingHeader.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		777F74001A439707000208AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F744A1A439A71000208AC /* libsqlite3.dylib in Frameworks */,
+				777F74481A439A65000208AC /* libz.dylib in Frameworks */,
+				777F74461A439A5B000208AC /* SystemConfiguration.framework in Frameworks */,
+				777F74441A439A54000208AC /* StoreKit.framework in Frameworks */,
+				777F74421A439A4C000208AC /* Security.framework in Frameworks */,
+				777F74401A439A45000208AC /* QuartzCore.framework in Frameworks */,
+				777F743E1A439A3D000208AC /* MobileCoreServices.framework in Frameworks */,
+				777F743C1A439A34000208AC /* CoreLocation.framework in Frameworks */,
+				777F743A1A439A2B000208AC /* CoreGraphics.framework in Frameworks */,
+				777F74381A439A21000208AC /* CFNetwork.framework in Frameworks */,
+				777F74361A439A17000208AC /* AudioToolbox.framework in Frameworks */,
+				777F74311A4399D9000208AC /* Parse.framework in Frameworks */,
+				777F74321A4399D9000208AC /* ParseCrashReporting.framework in Frameworks */,
+				777F74341A4399D9000208AC /* ParseUI.framework in Frameworks */,
+				777F74331A4399D9000208AC /* ParseFacebookUtils.framework in Frameworks */,
+				777F74301A4399D9000208AC /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		777F74151A439707000208AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		777F73FA1A439707000208AC = {
+			isa = PBXGroup;
+			children = (
+				777F74491A439A71000208AC /* libsqlite3.dylib */,
+				777F74471A439A65000208AC /* libz.dylib */,
+				777F74451A439A5B000208AC /* SystemConfiguration.framework */,
+				777F74431A439A54000208AC /* StoreKit.framework */,
+				777F74411A439A4C000208AC /* Security.framework */,
+				777F743F1A439A45000208AC /* QuartzCore.framework */,
+				777F743D1A439A3D000208AC /* MobileCoreServices.framework */,
+				777F743B1A439A34000208AC /* CoreLocation.framework */,
+				777F74391A439A2B000208AC /* CoreGraphics.framework */,
+				777F74371A439A21000208AC /* CFNetwork.framework */,
+				777F74351A439A17000208AC /* AudioToolbox.framework */,
+				777F742A1A4399D9000208AC /* parse-library-1.6.0 */,
+				777F74051A439707000208AC /* UW Room Finder */,
+				777F741B1A439707000208AC /* UW Room FinderTests */,
+				777F74041A439707000208AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		777F74041A439707000208AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				777F74031A439707000208AC /* UW Room Finder.app */,
+				777F74181A439707000208AC /* UW Room FinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		777F74051A439707000208AC /* UW Room Finder */ = {
+			isa = PBXGroup;
+			children = (
+				777F74281A439749000208AC /* BuildingsTableView.swift */,
+				777F744C1A439EBE000208AC /* UWRoomFinderBridgingHeader.m */,
+				777F74081A439707000208AC /* AppDelegate.swift */,
+				777F740C1A439707000208AC /* Main.storyboard */,
+				777F740F1A439707000208AC /* Images.xcassets */,
+				777F74111A439707000208AC /* LaunchScreen.xib */,
+				777F74061A439707000208AC /* Supporting Files */,
+				777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */,
+			);
+			path = "UW Room Finder";
+			sourceTree = "<group>";
+		};
+		777F74061A439707000208AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				777F74071A439707000208AC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		777F741B1A439707000208AC /* UW Room FinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				777F741E1A439707000208AC /* UW_Room_FinderTests.swift */,
+				777F741C1A439707000208AC /* Supporting Files */,
+			);
+			path = "UW Room FinderTests";
+			sourceTree = "<group>";
+		};
+		777F741C1A439707000208AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				777F741D1A439707000208AC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		777F742A1A4399D9000208AC /* parse-library-1.6.0 */ = {
+			isa = PBXGroup;
+			children = (
+				777F742B1A4399D9000208AC /* Bolts.framework */,
+				777F742C1A4399D9000208AC /* Parse.framework */,
+				777F742D1A4399D9000208AC /* ParseCrashReporting.framework */,
+				777F742E1A4399D9000208AC /* ParseFacebookUtils.framework */,
+				777F742F1A4399D9000208AC /* ParseUI.framework */,
+			);
+			path = "parse-library-1.6.0";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		777F74021A439707000208AC /* UW Room Finder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777F74221A439707000208AC /* Build configuration list for PBXNativeTarget "UW Room Finder" */;
+			buildPhases = (
+				777F73FF1A439707000208AC /* Sources */,
+				777F74001A439707000208AC /* Frameworks */,
+				777F74011A439707000208AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UW Room Finder";
+			productName = "UW Room Finder";
+			productReference = 777F74031A439707000208AC /* UW Room Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		777F74171A439707000208AC /* UW Room FinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777F74251A439707000208AC /* Build configuration list for PBXNativeTarget "UW Room FinderTests" */;
+			buildPhases = (
+				777F74141A439707000208AC /* Sources */,
+				777F74151A439707000208AC /* Frameworks */,
+				777F74161A439707000208AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				777F741A1A439707000208AC /* PBXTargetDependency */,
+			);
+			name = "UW Room FinderTests";
+			productName = "UW Room FinderTests";
+			productReference = 777F74181A439707000208AC /* UW Room FinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		777F73FB1A439707000208AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Rajas Agashe";
+				TargetAttributes = {
+					777F74021A439707000208AC = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					777F74171A439707000208AC = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 777F74021A439707000208AC;
+					};
+				};
+			};
+			buildConfigurationList = 777F73FE1A439707000208AC /* Build configuration list for PBXProject "UW Room Finder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 777F73FA1A439707000208AC;
+			productRefGroup = 777F74041A439707000208AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				777F74021A439707000208AC /* UW Room Finder */,
+				777F74171A439707000208AC /* UW Room FinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		777F74011A439707000208AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F740E1A439707000208AC /* Main.storyboard in Resources */,
+				777F74131A439707000208AC /* LaunchScreen.xib in Resources */,
+				777F74101A439707000208AC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		777F74161A439707000208AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		777F73FF1A439707000208AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F744D1A439EBE000208AC /* UWRoomFinderBridgingHeader.m in Sources */,
+				777F74091A439707000208AC /* AppDelegate.swift in Sources */,
+				777F74291A439749000208AC /* BuildingsTableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		777F74141A439707000208AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F741F1A439707000208AC /* UW_Room_FinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		777F741A1A439707000208AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 777F74021A439707000208AC /* UW Room Finder */;
+			targetProxy = 777F74191A439707000208AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		777F740C1A439707000208AC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				777F740D1A439707000208AC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		777F74111A439707000208AC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				777F74121A439707000208AC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		777F74201A439707000208AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		777F74211A439707000208AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		777F74231A439707000208AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/parse-library-1.6.0",
+				);
+				INFOPLIST_FILE = "UW Room Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UW Room Finder/UW Room Finder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		777F74241A439707000208AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/parse-library-1.6.0",
+				);
+				INFOPLIST_FILE = "UW Room Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UW Room Finder/UW Room Finder-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		777F74261A439707000208AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UW Room FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UW Room Finder.app/UW Room Finder";
+			};
+			name = Debug;
+		};
+		777F74271A439707000208AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UW Room FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UW Room Finder.app/UW Room Finder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		777F73FE1A439707000208AC /* Build configuration list for PBXProject "UW Room Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				777F74201A439707000208AC /* Debug */,
+				777F74211A439707000208AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		777F74221A439707000208AC /* Build configuration list for PBXNativeTarget "UW Room Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				777F74231A439707000208AC /* Debug */,
+				777F74241A439707000208AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		777F74251A439707000208AC /* Build configuration list for PBXNativeTarget "UW Room FinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				777F74261A439707000208AC /* Debug */,
+				777F74271A439707000208AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 777F73FB1A439707000208AC /* Project object */;
+}
