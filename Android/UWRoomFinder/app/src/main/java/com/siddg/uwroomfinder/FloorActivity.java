@@ -1,25 +1,50 @@
 package com.siddg.uwroomfinder;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sidd on 12/18/2014.
  */
 public class FloorActivity extends ActionBarActivity {
+
+    private ListView floorList;
+    private List<String> floors;
+    private ArrayAdapter<String> floorAdapter;
+    private ProgressDialog loadingFeedback;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor);
         String currentBuilding = getIntent().getStringExtra("buildingName");
 
+        floorList = (ListView) findViewById(R.id.floorList);
+        /*floorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String floorNumber = floors.get(position);
+                Intent i = new Intent(FloorActivity.this, FloorActivity.class);
+                i.putExtra("floor", floorNumber);
+                startActivity(i);
 
+            }
+        }); */
+        floors = new ArrayList<String>();
+        floorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, floors);
+        floorList.setAdapter(floorAdapter);
+        // Parse Query to find floor numbers
 
 
 

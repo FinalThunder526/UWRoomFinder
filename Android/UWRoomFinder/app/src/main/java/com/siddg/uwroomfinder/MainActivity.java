@@ -1,3 +1,4 @@
+
 package com.siddg.uwroomfinder;
 
 import android.app.ProgressDialog;
@@ -71,7 +72,9 @@ public class MainActivity extends ActionBarActivity {
                     addBuildingstoList(Buildings);
                 } else {
                     // Failed result
-                    Toast.makeText(MainActivity.this, "Failed to load building list", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,
+                            "Failed to load building list. Make sure you are connected to a network",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
