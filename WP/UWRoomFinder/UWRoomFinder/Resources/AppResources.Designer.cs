@@ -79,7 +79,7 @@ namespace UWRoomFinder.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MY APPLICATION.
+        ///   Looks up a localized string similar to UW Room Finder.
         /// </summary>
         public static string ApplicationTitle {
             get {

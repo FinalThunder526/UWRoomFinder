@@ -15,7 +15,7 @@ namespace UWRoomFinder
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        public static List<Building> buildings;
+        public List<Building> buildings;
         // Constructor
         public MainPage()
         {
@@ -39,6 +39,8 @@ namespace UWRoomFinder
             SetProgressIndicator(true);
             SystemTray.ProgressIndicator.Text = "Downloading Buildings";
 
+            SortedSet<string> sortedBuildings = new SortedSet<string>();
+
             // Queries the Parse database
             var query = ParseObject.GetQuery("StudyRoom");
             IEnumerable<ParseObject> results = await query.FindAsync();
@@ -50,7 +52,12 @@ namespace UWRoomFinder
             {
                 string b = (string)o["buildingName"];
                 if (!IsBuildingAdded(b))
-                    buildings.Add(new Building(b, 0));
+                    sortedBuildings.Add(b);
+            }
+
+            foreach (string b in sortedBuildings)
+            {
+                buildings.Add(new Building(b));
             }
 
             BuildingLongList.ItemsSource = buildings;
@@ -84,7 +91,7 @@ namespace UWRoomFinder
             //ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
-        private static void SetProgressIndicator(bool isVisible)
+        public static void SetProgressIndicator(bool isVisible)
         {
             SystemTray.ProgressIndicator.IsIndeterminate = isVisible;
             SystemTray.ProgressIndicator.IsVisible = isVisible;
@@ -100,10 +107,9 @@ namespace UWRoomFinder
             public string BuildingName { get; set; }
             public int NOfFloors { get; set; }
 
-            public Building(string bname, int noffloors)
+            public Building(string bname)
             {
                 BuildingName = bname;
-                NOfFloors = noffloors;
             }
         }
 
@@ -111,7 +117,8 @@ namespace UWRoomFinder
         {
             if (BuildingLongList.SelectedItem != null)
             {
-                NavigationService.Navigate(new Uri("/FloorsPage.xaml", UriKind.Relative));
+                Building b = e.AddedItems[0] as Building;
+                NavigationService.Navigate(new Uri("/FloorsPage.xaml?b=" + b.BuildingName, UriKind.Relative));
                 BuildingLongList.SelectedItem = null;
             }
         }

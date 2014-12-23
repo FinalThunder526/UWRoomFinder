@@ -15,26 +15,8 @@
 
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="BuildingItemTemplate">
-            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="{Binding BuildingName}" FontSize="48" />
-                <TextBlock Text="{Binding NOfFloors}" />
-            </StackPanel>
+            <TextBlock FontWeight="Bold" Text="{Binding BuildingName}" FontSize="48" />
         </DataTemplate>
-        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
-        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
-        <Style x:Key="BuildingJumpListStyle" TargetType="phone:LongListSelector">
-            <Setter Property="GridCellSize" Value="113, 113" />
-            <Setter Property="LayoutMode" Value="Grid" />
-            <Setter Property="ItemTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6">
-                            <TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6"
-                                       Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>                        </Border>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -46,18 +28,17 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="UW Room Finder" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+                       Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
             <TextBlock Text="Buildings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <phone:LongListSelector x:Name="BuildingLongList"
-                                    Background="Transparent"
                                     ItemTemplate="{StaticResource BuildingItemTemplate}"
                                     LayoutMode="List"
                                     IsGroupingEnabled="False"
-                                    HideEmptyGroups="True"
                                     SelectionChanged="ListSelected"/>
         </Grid>
 
