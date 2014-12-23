@@ -1,11 +1,10 @@
-
 package com.siddg.uwroomfinder;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,69 +23,82 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Created by Sidd on 12/22/2014.
+ */
+public class RoomActivity extends ActionBarActivity {
 
-public class MainActivity extends ActionBarActivity {
-
-    private ListView buildingList;
-    private List<String> buildings;
-    private ArrayAdapter<String> buildingAdapter;
+    private ListView roomList;
+    private List<String> rooms;
+    private ArrayAdapter<String> roomAdapter;
     private ProgressDialog loadingFeedback;
+    private String currentFloor;
+    private String currentBuilding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_room);
+        currentFloor = getIntent().getStringExtra("floorNumber");
+        currentBuilding = getIntent().getStringExtra("currentBuilding");
 
-        // App entry
-        buildingList = (ListView) findViewById(R.id.buildingList);
-        buildingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        roomList = (ListView) findViewById(R.id.roomList);
+        /*
+        roomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String buildingName = buildings.get(position);
-                Intent i = new Intent(MainActivity.this, FloorActivity.class);
-                i.putExtra("buildingName", buildingName);
+                String floorNumber = floors.get(position);
+                Intent i = new Intent(FloorActivity.this, RoomActivity.class);
+                i.putExtra("floor", floorNumber);
                 startActivity(i);
 
             }
-        });
-        buildings = new ArrayList<String>();
-        buildingAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buildings);
-        buildingList.setAdapter(buildingAdapter);
-        getBuildings();
+        }); */
+        rooms = new ArrayList<String>();
+        roomAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, rooms);
+        roomList.setAdapter(roomAdapter);
+        // Parse Query to find floor numbers
+        getRooms();
 
 
     }
 
-    // TODO: optimize get buildings and save data in local cache
-    private void getBuildings() {
+
+    private void getRooms() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("StudyRoom");
-        loadingFeedback = ProgressDialog.show(this, "", "Loading UW Buildings");
+        loadingFeedback = ProgressDialog.show(this, "", "Loading study rooms on floor " + currentFloor);
+        query.whereEqualTo("buildingName", currentBuilding);
+        query.whereStartsWith("roomNumber", currentFloor);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
                 if (e == null) {
-                    Set<String> Buildings = new TreeSet<String>();
+                    Set<String> Rooms = new TreeSet<String>();
                     for (ParseObject object : parseObjects) {
-                        String build = object.getString("buildingName");
-                        Buildings.add(build);
+                        String rooms = object.getString("roomNumber");
+                        String room = "Room " + rooms;
+                        Rooms.add(room);
+
                     }
-                    addBuildingstoList(Buildings);
+                    addRoomstoList(Rooms);
                 } else {
                     // Failed result
-                    Toast.makeText(MainActivity.this,
-                            "Failed to load building list. Make sure you are connected to a network",
+                    Toast.makeText(RoomActivity.this,
+                            "Failed to load rooms. Make sure you are connected to a network",
                             Toast.LENGTH_LONG).show();
                 }
             }
         });
+
     }
 
-    private void addBuildingstoList(Set<String> Buildings) {
-        buildings.clear();
-        for (String s : Buildings) {
-            buildings.add(s);
+    private void addRoomstoList(Set<String> Rooms) {
+        rooms.clear();
+        for (String s : Rooms) {
+            rooms.add(s);
         }
-        buildingAdapter.notifyDataSetChanged();
+        roomAdapter.notifyDataSetChanged();
         loadingFeedback.dismiss();
     }
 
@@ -97,7 +109,6 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -105,11 +116,13 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         // Refresh action
-        if (id == R.id.action_refresh) {
-            getBuildings();
+        if(id == R.id.action_refresh) {
+            getRooms();
         }
 
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
