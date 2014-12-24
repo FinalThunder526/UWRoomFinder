@@ -32,11 +32,11 @@
                 <TextBlock FontSize="38" FontWeight="ExtraBold" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top"/>
                 <TextBlock x:Name="DescriptionBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-                <StackPanel x:Name="OccupiedView" Visibility="Visible">
-                    <TextBlock FontSize="38" Text="Current Occupant: " TextWrapping="Wrap"/>
-                    <TextBlock x:Name="CurrentOccupantBlock" FontSize="40" FontWeight="ExtraBold" Text=""/>
-                    <TextBlock FontSize="38" Text="Occupied Till: " TextWrapping="Wrap"/>
-                    <TextBlock x:Name="OccupiedTillBlock" FontSize="40" FontWeight="ExtraBold" Text=""/>
+                <StackPanel x:Name="OccupiedView" Visibility="Collapsed">
+                    <TextBlock FontSize="38" Text="Current Occupant: " FontWeight="ExtraBold" TextWrapping="Wrap"/>
+                    <TextBlock x:Name="CurrentOccupantBlock" FontSize="40" Text=""/>
+                    <TextBlock FontSize="38" Text="Occupied Till: " TextWrapping="Wrap" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="OccupiedTillBlock" FontSize="40" Text=""/>
                 </StackPanel>
                 <StackPanel x:Name="FreeView" Visibility="Collapsed">
                     <StackPanel Orientation="Horizontal">
@@ -44,9 +44,9 @@
                         <TextBox x:Name="NewOccupantBlock" VerticalAlignment="Center" FontSize="36" Width="275"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" FontSize="36" Text="Select Time:" />
+                        <TextBlock FontWeight="ExtraBold" VerticalAlignment="Center" FontSize="36" Text="Select Time:" />
                         <Button x:Name="Subtract15" Content="-" Tap="Subtract15_Tap" />
-                        <TextBlock x:Name="NewTimeText" VerticalAlignment="Center" FontSize="36" Text="15" />
+                        <TextBlock FontWeight="ExtraBold" x:Name="NewTimeText" VerticalAlignment="Center" FontSize="36" Text="15" />
                         <Button x:Name="Add15" Content="+" Tap="Add15_Tap" />
                     </StackPanel>
                     <Button Content="Check In!" x:Name="CheckInButton" Tap="CheckInButton_Tap" />

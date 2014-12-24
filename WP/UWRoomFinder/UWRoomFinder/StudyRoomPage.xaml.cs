@@ -66,20 +66,37 @@ namespace UWRoomFinder
             MainPage.SetProgressIndicator(false);
         }
 
+        string currentOccupant = null;
+            
+        /// <summary>
+        /// Once the StudyRoom has been fetched, loads the views depending on whether
+        /// it is free or not.
+        /// </summary>
         private void LoadViews()
         {
-            string currentOccupant = (string)RoomObject["occupant"];
+            try
+            {
+                currentOccupant = (string)RoomObject["occupant"];
+            }
+            catch (KeyNotFoundException e)
+            {
+                currentOccupant = null;
+            }
             if (currentOccupant == null || currentOccupant.Trim().Length <= 0)
             {
                 // FREE
-                FreeView.Visibility = System.Windows.Visibility.Visible;
-                FreeView.Visibility = System.Windows.Visibility.Visible;
+                FreeView.Visibility = Visibility.Visible;
+                OccupiedView.Visibility = Visibility.Collapsed;
             }
             else
             {
                 // OCCUPIED
-            }
-                
+                FreeView.Visibility = Visibility.Collapsed;
+                OccupiedView.Visibility = Visibility.Visible;
+                CurrentOccupantBlock.Text = currentOccupant;
+                DateTime occupiedTill = RoomObject.Get<DateTime>("occupiedTill");
+                OccupiedTillBlock.Text = occupiedTill.ToShortTimeString();
+            }                
         }
 
         private void CheckInButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -87,7 +104,8 @@ namespace UWRoomFinder
             newOccupant = NewOccupantBlock.Text;
             if (newOccupant != null && newOccupant.Trim().Length > 0)
             {
-                CheckIn();
+                if(currentOccupant == null)
+                    CheckIn();
             }
         }
 
@@ -99,7 +117,20 @@ namespace UWRoomFinder
             DateTime free = now.AddMinutes(newTime);
             RoomObject["occupiedTill"] = free;
 
-            await RoomObject.SaveAsync();
+            MainPage.SetProgressIndicator(true);
+            SystemTray.ProgressIndicator.Text = "Checking in...";
+
+            try
+            {
+                await RoomObject.SaveAsync();
+            }
+            catch (Exception e)
+            {
+                // Unable to check in
+            }
+            MainPage.SetProgressIndicator(false);
+
+            LoadViews();
         }
 
         private void Subtract15_Tap(object sender, System.Windows.Input.GestureEventArgs e)

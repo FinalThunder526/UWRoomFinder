@@ -41,27 +41,33 @@ namespace UWRoomFinder
 
             SortedSet<string> sortedBuildings = new SortedSet<string>();
 
-            // Queries the Parse database
-            var query = ParseObject.GetQuery("StudyRoom");
-            IEnumerable<ParseObject> results = await query.FindAsync();
-
-            SystemTray.ProgressIndicator.Text = "Downloaded";
-
-            buildings.Clear();
-            foreach (ParseObject o in results)
+            try
             {
-                string b = (string)o["buildingName"];
-                if (!IsBuildingAdded(b))
-                    sortedBuildings.Add(b);
-            }
+                // Queries the Parse database
+                var query = ParseObject.GetQuery("StudyRoom");
+                IEnumerable<ParseObject> results = await query.FindAsync();
 
-            foreach (string b in sortedBuildings)
+                SystemTray.ProgressIndicator.Text = "Downloaded";
+
+                buildings.Clear();
+                foreach (ParseObject o in results)
+                {
+                    string b = (string)o["buildingName"];
+                    if (!IsBuildingAdded(b))
+                        sortedBuildings.Add(b);
+                }
+
+                foreach (string b in sortedBuildings)
+                {
+                    buildings.Add(new Building(b));
+                }
+            }
+            catch (ParseException e)
             {
-                buildings.Add(new Building(b));
+                SystemTray.ProgressIndicator.Text = "Download failed.";
             }
-
-            BuildingLongList.ItemsSource = buildings;
             SetProgressIndicator(false);
+            BuildingLongList.ItemsSource = buildings;
         }
 
         private bool IsBuildingAdded(string name)
