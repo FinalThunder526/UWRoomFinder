@@ -12,25 +12,32 @@ class BuildingsTableView: UITableViewController {
     
     var buildingNames:NSMutableArray = NSMutableArray()
     var allObjects:NSArray = NSArray()
-    var buildingNameForSegue:String = String()
+    //var buildingNameForSegue:String = String()
     //var buildingNamesSet:NSMutableSet = NSMutableSet()
     
     override func viewDidLoad() {
         self.title = "Buildings"
         
-        var query = PFQuery(className: "StudyRoom")
-        allObjects = query.findObjects() as NSArray
-        for(var i = 0; i < allObjects.count; i++){
-            var name:String = (allObjects.objectAtIndex(i))["buildingName"] as String
-            if(!buildingNames.containsObject(name)){
-                buildingNames.addObject(name)
+        buildingNames.addObject("Lander")
+        buildingNames.addObject("Alder")
+        buildingNames.addObject("Elm")
+        //buildingNames.addObject("Elm") UNCOMMENT THIS
+        var query2 = PFQuery(className: "StudyRoom")
+        var names:[String] = ["Lander", "Alder", "Elm"] //UNCOMMENT THIS, "Elm"]
+        query2.whereKey("buildingName", notContainedIn: names)
+        query2.findObjectsInBackgroundWithBlock {
+            (results: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // results will contain users with a hometown team with a winning record
+                for(var i = 0; i < results.count; i++){
+                    println(results[i]["buildingName"] as String)
+                    if(!(self.buildingNames.containsObject(results[i]["buildingName"] as String))){
+                        self.buildingNames.addObject((results[i]["buildingName"] as String))
+                    }
+                }
+                self.tableView.reloadData()
             }
-            //buildingNamesSet.addObject(name);
         }
-        
-        //populateLanderRooms()
-        //populateAlderRooms()
-        //populateElmRooms()
     }
     
     // only call this function if you need to repopulate some other floow
@@ -122,6 +129,8 @@ class BuildingsTableView: UITableViewController {
         return buildingNames.count
     }
     
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) as? UITableViewCell
         if(cell == nil){
@@ -132,24 +141,14 @@ class BuildingsTableView: UITableViewController {
         return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        buildingNameForSegue = buildingNames.objectAtIndex(indexPath.row) as String
-        //print(buildingNameForSegue)
-    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "segue"){
             let controller = segue.destinationViewController as FloorsTableView
-            controller.buildingName = buildingNameForSegue
-            //logic for removing data and putting it into new array
-            var tempArray:NSMutableArray = NSMutableArray()
-            for(var i = 0; i < allObjects.count; i++){
-                var name:String = (allObjects.objectAtIndex(i))["buildingName"] as String
-                if(buildingNameForSegue == name){
-                    tempArray.addObject(allObjects.objectAtIndex(i))
-                }
-                controller.floorsArray = tempArray
-            }
+            let selectedRowVal = tableView.indexPathForSelectedRow()?.row
+            controller.buildingName = buildingNames.objectAtIndex(selectedRowVal!) as String//buildingNameForSegue
+            
         }
         
     }

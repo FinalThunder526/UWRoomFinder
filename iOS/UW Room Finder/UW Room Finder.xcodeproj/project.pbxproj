@@ -31,6 +31,8 @@
 		777F74461A439A5B000208AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74451A439A5B000208AC /* SystemConfiguration.framework */; };
 		777F74481A439A65000208AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74471A439A65000208AC /* libz.dylib */; };
 		777F744A1A439A71000208AC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F74491A439A71000208AC /* libsqlite3.dylib */; };
+		77CCD1AB1A48CED500518439 /* StudyRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CCD1AA1A48CED500518439 /* StudyRoomCell.swift */; };
+		77CCD1DF1A48FE1000518439 /* StudyRoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CCD1DE1A48FE1000518439 /* StudyRoomDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		777F74471A439A65000208AC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		777F74491A439A71000208AC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UW Room Finder-Bridging-Header.h"; sourceTree = "<group>"; };
+		77CCD1AA1A48CED500518439 /* StudyRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyRoomCell.swift; sourceTree = "<group>"; };
+		77CCD1DE1A48FE1000518439 /* StudyRoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyRoomDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +147,12 @@
 			isa = PBXGroup;
 			children = (
 				777F744B1A439EBE000208AC /* UW Room Finder-Bridging-Header.h */,
-				776175751A43DA7900F72BEE /* BuildingsTableView.swift */,
-				776175731A43D29100F72BEE /* StudyRoomTableView.swift */,
-				776175711A43C69600F72BEE /* FloorsTableView.swift */,
 				777F74081A439707000208AC /* AppDelegate.swift */,
+				776175751A43DA7900F72BEE /* BuildingsTableView.swift */,
+				776175711A43C69600F72BEE /* FloorsTableView.swift */,
+				776175731A43D29100F72BEE /* StudyRoomTableView.swift */,
+				77CCD1DE1A48FE1000518439 /* StudyRoomDetailViewController.swift */,
+				77CCD1AA1A48CED500518439 /* StudyRoomCell.swift */,
 				777F740C1A439707000208AC /* Main.storyboard */,
 				777F740F1A439707000208AC /* Images.xcassets */,
 				777F74111A439707000208AC /* LaunchScreen.xib */,
@@ -292,9 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77CCD1DF1A48FE1000518439 /* StudyRoomDetailViewController.swift in Sources */,
 				776175741A43D29100F72BEE /* StudyRoomTableView.swift in Sources */,
 				776175721A43C69600F72BEE /* FloorsTableView.swift in Sources */,
 				777F74091A439707000208AC /* AppDelegate.swift in Sources */,
+				77CCD1AB1A48CED500518439 /* StudyRoomCell.swift in Sources */,
 				776175761A43DA7900F72BEE /* BuildingsTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
