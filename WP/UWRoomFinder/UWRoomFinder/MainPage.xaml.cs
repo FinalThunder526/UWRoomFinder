@@ -68,6 +68,7 @@ namespace UWRoomFinder
             }
             SetProgressIndicator(false);
             BuildingLongList.ItemsSource = buildings;
+            BuildingLongList.Visibility = Visibility.Visible;
         }
 
         private bool IsBuildingAdded(string name)

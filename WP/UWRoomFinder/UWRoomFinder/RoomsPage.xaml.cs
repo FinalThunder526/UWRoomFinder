@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Parse;
 using UWRoomFinder.Resources;
+using System.Threading.Tasks;
 
 namespace UWRoomFinder
 {
@@ -17,6 +18,8 @@ namespace UWRoomFinder
         String buildingName;
         int floorN;
         public List<StudyRoom> rooms;
+
+        int roomsLoadedCounter = 0;
 
         public RoomsPage()
         {
@@ -59,14 +62,17 @@ namespace UWRoomFinder
                 int.TryParse(floor, out floorN);
                 PageTitle.Text = buildingName + " " + floorN;
             }
+            if (roomsLoadedCounter > 0)
+            {
+                GetRooms();
+            }
         }
 
         private async void GetRooms()
         {
+            roomsLoadedCounter++;
             MainPage.SetProgressIndicator(true);
             SystemTray.ProgressIndicator.Text = "Downloading Rooms";
-
-            SortedSet<string> sortedRooms = new SortedSet<string>();
 
             // Queries database
             var query = from room in ParseObject.GetQuery("StudyRoom")
@@ -75,17 +81,64 @@ namespace UWRoomFinder
                         select room;
             IEnumerable<ParseObject> results = await query.FindAsync();
 
-            foreach (ParseObject o in results )
+            SortedSet<StudyRoom> sortedRooms = new SortedSet<StudyRoom>();
+            rooms.Clear();
+
+            for (int i = 0; i < results.Count<ParseObject>(); i++)
             {
+                ParseObject o = results.ElementAt<ParseObject>(i);
                 string roomN = (string)o["roomNumber"];
-                sortedRooms.Add(roomN);
+                StudyRoom s = new StudyRoom(buildingName, roomN);
+                await CheckOutAndSaveStudyRoom(o, s);
+                
+                sortedRooms.Add(s);
             }
 
-            foreach (string n in sortedRooms)
-                rooms.Add(new StudyRoom(buildingName, n));
+            rooms.Clear();
 
+            foreach (StudyRoom s in sortedRooms) 
+                rooms.Add(s);
+                        
             RoomList.ItemsSource = rooms;
             MainPage.SetProgressIndicator(false);
+        }
+
+        private async Task CheckOutAndSaveStudyRoom(ParseObject o, StudyRoom s)
+        {
+            DateTime occupiedTill = DateTime.MinValue;
+            // See if it's occupied
+            try
+            {
+                occupiedTill = o.Get<DateTime>("occupiedTill");
+            }
+            catch (Exception e)
+            {
+                occupiedTill = DateTime.MinValue;
+            }
+            // If it is, see if the time of departure is past
+            if (occupiedTill != DateTime.MinValue)
+            {
+                // Occupied
+                if (occupiedTill.CompareTo(DateTime.UtcNow) <= 0)
+                {
+                    // Check out!
+                    o["occupant"] = null;
+                    o["occupiedTill"] = null;
+                    await o.SaveAsync();
+                    // No longer occupied
+                    s.TimeLeft = "Free";
+                }
+                else
+                {
+                    // Still occupied
+                    s.TimeLeft = o.Get<DateTime>("occupiedTill").Subtract(DateTime.UtcNow).ToString();
+                }
+            }
+            else
+            {
+                // Not occupied
+                s.TimeLeft = "Free";
+            }
         }
 
         private void ListSelected(object sender, SelectionChangedEventArgs e)
