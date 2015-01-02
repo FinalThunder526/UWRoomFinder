@@ -7,5 +7,6 @@
     <string name="building_title">Buildings</string>
     <string name="floor_title">Floors</string>
     <string name="room_title">Rooms</string>
+    <string name="room_default">Empty Room</string>
 
 </resources>

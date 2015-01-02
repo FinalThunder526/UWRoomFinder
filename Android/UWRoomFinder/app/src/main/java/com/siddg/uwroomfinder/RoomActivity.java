@@ -43,18 +43,17 @@ public class RoomActivity extends ActionBarActivity {
         currentBuilding = getIntent().getStringExtra("currentBuilding");
 
         roomList = (ListView) findViewById(R.id.roomList);
-        /*
         roomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String floorNumber = floors.get(position);
-                Intent i = new Intent(FloorActivity.this, RoomActivity.class);
-                i.putExtra("floor", floorNumber);
+                String roomNumber = rooms.get(position);
+                Intent i = new Intent(RoomActivity.this, ReservationActivity.class);
+                i.putExtra("room", roomNumber);
                 startActivity(i);
 
             }
-        }); */
+        });
         rooms = new ArrayList<String>();
         roomAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, rooms);
         roomList.setAdapter(roomAdapter);
@@ -119,6 +118,8 @@ public class RoomActivity extends ActionBarActivity {
         if(id == R.id.action_refresh) {
             getRooms();
         }
+
+
 
 
         return super.onOptionsItemSelected(item);

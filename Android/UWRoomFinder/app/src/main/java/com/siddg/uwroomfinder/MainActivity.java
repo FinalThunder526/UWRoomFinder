@@ -52,8 +52,9 @@ public class MainActivity extends ActionBarActivity {
         buildings = new ArrayList<String>();
         buildingAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buildings);
         buildingList.setAdapter(buildingAdapter);
+        // if local datastore is null
         getBuildings();
-
+        // else pull from local datastore
 
     }
 

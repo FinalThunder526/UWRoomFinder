@@ -37,6 +37,15 @@
                 android:value=".FloorActivity">
             </meta-data>
         </activity>
+        <activity
+            android:name=".ReservationActivity"
+            android:label="UWRoomFinder"
+            android:parentActivityName=".RoomActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RoomActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

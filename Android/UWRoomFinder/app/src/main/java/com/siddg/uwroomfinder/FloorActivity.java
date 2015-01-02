@@ -38,16 +38,23 @@ public class FloorActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor);
         currentBuilding = getIntent().getStringExtra("buildingName");
+        if(currentBuilding == null) {
+            // Moved from Rooms
+            //currentBuilding = getFromStorage();
+        } else {
+            // Moved from Buildings
+            //saveToStorage(currentBuilding);
+        }
 
         floorList = (ListView) findViewById(R.id.floorList);
         floorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String floorNumber = floors.get(position);
-                String n = floorNumber.substring(6);
+                String buildingName = currentBuilding;
+                String floorNumber = floors.get(position).substring(6);
                 Intent i = new Intent(FloorActivity.this, RoomActivity.class);
-                i.putExtra("floor", n);
-                i.putExtra("currentBuilding", currentBuilding);
+                i.putExtra("currentBuilding", buildingName);
+                i.putExtra("floorNumber", floorNumber);
                 startActivity(i);
 
             }
