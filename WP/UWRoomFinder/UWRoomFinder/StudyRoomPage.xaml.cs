@@ -26,6 +26,7 @@ namespace UWRoomFinder
             this.Loaded += StudyRoomPage_Loaded;
         }
 
+        #region Callbacks
         void StudyRoomPage_Loaded(object sender, RoutedEventArgs e)
         {
             SystemTray.ProgressIndicator = new ProgressIndicator();
@@ -46,7 +47,8 @@ namespace UWRoomFinder
 
             RoomTitle.Text = b + " " + r;
         }
-
+        #endregion
+        
         private async void LoadRoom()
         {
             MainPage.SetProgressIndicator(true);
@@ -99,16 +101,9 @@ namespace UWRoomFinder
             }                
         }
 
-        private void CheckInButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            newOccupant = NewOccupantBlock.Text;
-            if (newOccupant != null && newOccupant.Trim().Length > 0)
-            {
-                if(currentOccupant == null)
-                    CheckIn();
-            }
-        }
-
+        /// <summary>
+        /// Executes checkin.
+        /// </summary>
         private async void CheckIn()
         {
             RoomObject["occupant"] = newOccupant;
@@ -133,6 +128,18 @@ namespace UWRoomFinder
             LoadViews();
         }
 
+        
+        #region Button Clicks
+        private void CheckInButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            newOccupant = NewOccupantBlock.Text;
+            if (newOccupant != null && newOccupant.Trim().Length > 0)
+            {
+                if (currentOccupant == null)
+                    CheckIn();
+            }
+        }
+        
         private void Subtract15_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             if(newTime > 15)
@@ -146,5 +153,6 @@ namespace UWRoomFinder
                 newTime += 15;
             NewTimeText.Text = "" + newTime;
         }
+        #endregion
     }
 }

@@ -37,16 +37,14 @@ namespace UWRoomFinder
             appBarButton.Click += RefreshButtonClick;
         }
 
-        private void RefreshButtonClick(object sender, EventArgs e)
-        {
-            GetRooms();
-        }
-
+        #region Callbacks
+        
         void RoomsPage_Loaded(object sender, RoutedEventArgs e)
         {
             SystemTray.ProgressIndicator = new ProgressIndicator();
             rooms = new List<StudyRoom>();
-            GetRooms();
+            if (roomsLoadedCounter == 0)
+                GetRooms();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -68,6 +66,30 @@ namespace UWRoomFinder
             }
         }
 
+        #endregion
+
+        #region Button Clicks
+        
+        private void RefreshButtonClick(object sender, EventArgs e)
+        {
+            GetRooms();
+        }
+        
+        private void ListSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (RoomList.SelectedItem != null)
+            {
+                StudyRoom r = e.AddedItems[0] as StudyRoom;
+                NavigationService.Navigate(new Uri("/StudyRoomPage.xaml?b=" + buildingName + "&r=" + r.RoomN, UriKind.Relative));
+                RoomList.SelectedItem = null;
+            }
+        }
+    
+        #endregion
+        
+        /// <summary>
+        /// Downloads the rooms asynchronously.
+        /// </summary>
         private async void GetRooms()
         {
             roomsLoadedCounter++;
@@ -138,16 +160,6 @@ namespace UWRoomFinder
             {
                 // Not occupied
                 s.TimeLeft = "Free";
-            }
-        }
-
-        private void ListSelected(object sender, SelectionChangedEventArgs e)
-        {
-            if (RoomList.SelectedItem != null)
-            {
-                StudyRoom r = e.AddedItems[0] as StudyRoom;
-                NavigationService.Navigate(new Uri("/StudyRoomPage.xaml?b=" + buildingName + "&r=" + r.RoomN, UriKind.Relative));
-                RoomList.SelectedItem = null;
             }
         }
     }

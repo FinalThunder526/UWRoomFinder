@@ -16,7 +16,7 @@ namespace UWRoomFinder
     public partial class MainPage : PhoneApplicationPage
     {
         public List<Building> buildings;
-        // Constructor
+        
         public MainPage()
         {
             InitializeComponent();
@@ -57,6 +57,7 @@ namespace UWRoomFinder
                         sortedBuildings.Add(b);
                 }
 
+                // Sort buildings by name
                 foreach (string b in sortedBuildings)
                 {
                     buildings.Add(new Building(b));
@@ -104,10 +105,27 @@ namespace UWRoomFinder
             SystemTray.ProgressIndicator.IsVisible = isVisible;
         }
 
+        #region Button Clicks
         private void RefreshButtonClicked(object sender, EventArgs e)
         {
             GetBuildings();            
         }
+
+        /// <summary>
+        /// List selected - navigates to FloorsPage with chosen building
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (BuildingLongList.SelectedItem != null)
+            {
+                Building b = e.AddedItems[0] as Building;
+                NavigationService.Navigate(new Uri("/FloorsPage.xaml?b=" + b.BuildingName, UriKind.Relative));
+                BuildingLongList.SelectedItem = null;
+            }
+        }
+        #endregion
 
         public class Building
         {
@@ -119,15 +137,6 @@ namespace UWRoomFinder
                 BuildingName = bname;
             }
         }
-
-        private void ListSelected(object sender, SelectionChangedEventArgs e)
-        {
-            if (BuildingLongList.SelectedItem != null)
-            {
-                Building b = e.AddedItems[0] as Building;
-                NavigationService.Navigate(new Uri("/FloorsPage.xaml?b=" + b.BuildingName, UriKind.Relative));
-                BuildingLongList.SelectedItem = null;
-            }
-        }
+       
     }
 }
