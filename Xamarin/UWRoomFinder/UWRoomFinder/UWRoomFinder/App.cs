@@ -5,60 +5,31 @@ using System.Text;
 
 using Xamarin.Forms;
 
+using Parse;
+
 namespace UWRoomFinder
 {
-	public class App : Application
-	{
-        Button b;
-        Label l;
-        int Count = 0;
-
+    public class App : Application
+    {
         public App()
         {
-            b = new Button
-            {
-                AnchorX = 100,
-                AnchorY = 100,
-                Text = "Click!"
-            }; l = new Label
-            {
-                XAlign = TextAlignment.Center,
-                Text = "Count: " + Count
-            };
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-						l, b
-					}
-                }
-            };
-
-            b.Clicked += b_Clicked;
+            this.MainPage = new UWRoomFinder.MainPage();
+            ParseClient.Initialize("L3Toj2w8dfPshDHJX1sqDWVcT4enSvOusLnxJo5f", "Np86OZyFW3Ga4yH73kfjAvG92XiDrueV4nG1IE99");
         }
 
-        void b_Clicked(object sender, EventArgs e)
+        protected override void OnStart()
         {
-            Count++;
-            l.Text = "Count: " + Count;
+            base.OnStart();
         }
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
-
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void OnResume()
+        {
+            base.OnResume();
+        }
+        
+        protected override void OnSleep()
+        {
+            base.OnSleep();
+        }
+    }
 }

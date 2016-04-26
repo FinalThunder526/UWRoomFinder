@@ -13,6 +13,9 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UWRoomFinder", "UWRoomFinde
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		UWRoomFinder\UWRoomFinder\UWRoomFinder.projitems*{35fea941-d46a-4ace-92bd-5fa89dc81c73}*SharedItemsImports = 4
+		UWRoomFinder\UWRoomFinder\UWRoomFinder.projitems*{d5fbd3c4-3bda-4e24-a732-1d0a32738da9}*SharedItemsImports = 4
+		UWRoomFinder\UWRoomFinder\UWRoomFinder.projitems*{b3beaa08-9235-4d6e-998c-60be8080aa0e}*SharedItemsImports = 4
 		UWRoomFinder\UWRoomFinder\UWRoomFinder.projitems*{e6c3cb6c-cd8c-4a2c-af52-6e87fa4cd7e5}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
